@@ -8,16 +8,27 @@
 
 #import "WTTradeItem.h"
 
+static const NSString *kTicksKey = @"ticks";
+static const NSString *kTicksAKey = @"a";
+static const NSString *kTicksBKey = @"b";
+static const NSString *kTicksSubscribedListKey = @"subscribed_list";
+
 @implementation WTTradeItem
 
--(double)maxValue {
-    return [self.tradeBid doubleValue];
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    if (self = [super init]) {
+        NSArray *ticks = dictionary[kTicksKey];
+        if (!ticks.count) {
+            NSDictionary *tempDictionary = dictionary[kTicksSubscribedListKey];
+            ticks = tempDictionary[kTicksKey];
+        }
+        if (ticks.count) {
+            NSDictionary *tickDict = [ticks firstObject];
+            self.tradeBid = [tickDict[kTicksBKey] doubleValue];
+            self.tradeAsk = [tickDict[kTicksAKey] doubleValue];
+        }
+    }
+    return self;
 }
-
-
--(double)minValue {
-    return [self.tradeAsk doubleValue];
-}
-
 
 @end

@@ -8,12 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+/* 
+    class for tick from server
+    tick example:
+    {"ticks":[{"s":"BTCUSD","b":"4957.351","bf":0,"a":"4958.714","af":1,"spr":"1.4"}]}
+ */
+
 @interface WTTradeItem : NSObject
 
-@property (nonatomic, strong) NSString *tradeBid;
-@property (nonatomic, strong) NSString *tradeAsk;
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
--(double)maxValue;
--(double)minValue;
+@property (nonatomic, assign) double tradeBid;
+@property (nonatomic, assign) double tradeAsk;
+
 
 @end

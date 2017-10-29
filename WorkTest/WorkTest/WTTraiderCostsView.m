@@ -7,9 +7,12 @@
 //
 
 #import "WTTraiderCostsView.h"
+#import "UIColor+WTColors.h"
+
+static const CGFloat kLabelDistance = 30.0f;
 
 @interface WTTraiderCostsView() {
-    NSInteger _labelsCount;
+    NSMutableArray<NSLayoutConstraint *> *_contraints;
 }
 
 @end
@@ -20,45 +23,73 @@
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self == [super initWithFrame:frame]) {
         _costLabels = [NSMutableArray new];
+        _contraints = [NSMutableArray new];
     }
     return self;
 }
 
 
--(void)layoutWithLabelsCount:(NSInteger)labelCount {
+-(void)layoutSubviews {
+    [super layoutSubviews];
+}
+
+
+-(void)layoutCosts {
     [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj removeFromSuperview];
     }];
     
     [_costLabels removeAllObjects];
     
-    for (int index = 0; index < labelCount; index++) {
+    NSInteger countLabels = ceil(CGRectGetHeight(self.frame) / kLabelDistance) - 1;
+    
+    for (int index = 0; index < countLabels; index++) {
         UILabel *label = [UILabel new];
+        label.textColor = [self costLabelTextColor];
+        label.font = [self costLabelFont];
         label.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:label];
         [_costLabels addObject:label];
     }
-    _labelsCount = labelCount;
+    [self layoutForCurrentOrientation];
 }
 
 
--(void)layoutSubviews {
-    //layout cost labels
-    //if top label is exist bottom label relate to top label, if no its first label and he relates to top
-    
-    CGFloat labelDistance = ceil(CGRectGetHeight(self.frame) / _labelsCount);
-    
+-(void)layoutForCurrentOrientation {
+    CGFloat labelDistance = kLabelDistance;
+    [_contraints removeAllObjects];
     __block UILabel *prevView;
     [_costLabels enumerateObjectsUsingBlock:^(__kindof UILabel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLayoutConstraint *topConstraint = nil;
         if (!prevView) {
-            [NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0f constant:labelDistance].active = YES;
+            topConstraint = [NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0f constant:labelDistance];
         }
         else {
-            [NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:prevView attribute:NSLayoutAttributeTop multiplier:1.0f constant:labelDistance].active = YES;
+            topConstraint = [NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:prevView attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:labelDistance];
         }
-        [NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0];
+        NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0];
+        [_contraints addObject:topConstraint];
+        [_contraints addObject:centerXConstraint];
         prevView = obj;
     }];
+    [_contraints enumerateObjectsUsingBlock:^(NSLayoutConstraint * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.active = YES;
+    }];
+}
+
+
+-(UIFont *)costLabelFont {
+    return [UIFont systemFontOfSize:9];
+};
+
+
+-(UIColor *)costLabelTextColor {
+    return [UIColor costsViewColor];
+}
+
+
+-(void)dealloc {
+    
 }
 
 @end

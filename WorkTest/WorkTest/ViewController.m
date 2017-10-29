@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "WTTraideViewModel.h"
+#import "WTBitUsdViewController.h"
 #import "WTInjectionContainer.h"
-#import "WTTradeDataSource.h"
+#import "WTNetworkService.h"
 
 @interface ViewController ()
 
@@ -20,8 +20,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    WTTraideViewModel *traideViewModel = [[WTTraideViewModel alloc] initWithDataSource:injectorContainer().tradeDataSource targetView:self.view];
-    [traideViewModel setupUI];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button setTitle:@"GO" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:button];
+    
+    [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0].active = YES;
+    [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0].active = YES;
+    [button addTarget:self action:@selector(showBitUsdController) forControlEvents:UIControlEventTouchUpInside];
+}
+
+
+-(void)showBitUsdController {
+    WTBitUsdViewController *vc = [[WTBitUsdViewController alloc] initWithInjection:injectorContainer()];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -29,6 +42,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

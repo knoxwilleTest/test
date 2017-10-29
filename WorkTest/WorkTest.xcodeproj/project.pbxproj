@@ -24,6 +24,27 @@
 		1E4EA6CD1F9CB45E008BE4C1 /* WTTraidersCandlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA6CC1F9CB45E008BE4C1 /* WTTraidersCandlesView.m */; };
 		1E4EA6D11F9CB50F008BE4C1 /* WTTraiderCostsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA6D01F9CB50F008BE4C1 /* WTTraiderCostsViewModel.m */; };
 		1E4EA6D41F9CB51B008BE4C1 /* WTTraiderCostsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA6D31F9CB51B008BE4C1 /* WTTraiderCostsView.m */; };
+		1E4EA6D81F9CC45B008BE4C1 /* UIColor+WTColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA6D71F9CC45B008BE4C1 /* UIColor+WTColors.m */; };
+		1E4EA6DB1F9CDBBC008BE4C1 /* WTBitUsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA6DA1F9CDBBC008BE4C1 /* WTBitUsdViewController.m */; };
+		1E4EA6DF1F9D0238008BE4C1 /* WTTraidersCandlesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA6DE1F9D0238008BE4C1 /* WTTraidersCandlesViewModel.m */; };
+		1E4EA75C1FA074B3008BE4C1 /* PSWebSocketDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA7491FA074B3008BE4C1 /* PSWebSocketDriver.m */; };
+		1E4EA75D1FA074B3008BE4C1 /* PSWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA74A1FA074B3008BE4C1 /* PSWebSocket.m */; };
+		1E4EA75E1FA074B3008BE4C1 /* PSWebSocketBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA74E1FA074B3008BE4C1 /* PSWebSocketBuffer.m */; };
+		1E4EA75F1FA074B3008BE4C1 /* PSWebSocketDeflater.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA7501FA074B3008BE4C1 /* PSWebSocketDeflater.m */; };
+		1E4EA7601FA074B3008BE4C1 /* PSWebSocketInflater.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA7531FA074B3008BE4C1 /* PSWebSocketInflater.m */; };
+		1E4EA7611FA074B3008BE4C1 /* PSWebSocketNetworkThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA7561FA074B3008BE4C1 /* PSWebSocketNetworkThread.m */; };
+		1E4EA7621FA074B3008BE4C1 /* PSWebSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA7581FA074B3008BE4C1 /* PSWebSocketServer.m */; };
+		1E4EA7631FA074B3008BE4C1 /* PSWebSocketUTF8Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA75B1FA074B3008BE4C1 /* PSWebSocketUTF8Decoder.m */; };
+		1E4EA7661FA0750F008BE4C1 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4EA7651FA0750F008BE4C1 /* libSystem.tbd */; };
+		1E4EA7681FA07514008BE4C1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4EA7671FA07514008BE4C1 /* CFNetwork.framework */; };
+		1E4EA76A1FA07519008BE4C1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4EA7691FA07519008BE4C1 /* Security.framework */; };
+		1E4EA76C1FA07522008BE4C1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4EA76B1FA07522008BE4C1 /* libz.tbd */; };
+		1E4EA76F1FA08088008BE4C1 /* WTCandleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA76E1FA08088008BE4C1 /* WTCandleModel.m */; };
+		1E4EA7731FA46F11008BE4C1 /* WTDottedLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA7721FA46F11008BE4C1 /* WTDottedLineView.m */; };
+		1E4EA7771FA477E2008BE4C1 /* WTDottedBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA7761FA477E2008BE4C1 /* WTDottedBackgroundView.m */; };
+		1E4EA77B1FA52D6A008BE4C1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA77A1FA52D69008BE4C1 /* Reachability.m */; };
+		1E4EA7811FA52E0E008BE4C1 /* WTReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA7801FA52E0E008BE4C1 /* WTReachability.m */; };
+		1E4EA7851FA53140008BE4C1 /* WTNoInternetConnectionBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4EA7841FA53140008BE4C1 /* WTNoInternetConnectionBanner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +101,49 @@
 		1E4EA6D01F9CB50F008BE4C1 /* WTTraiderCostsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTraiderCostsViewModel.m; sourceTree = "<group>"; };
 		1E4EA6D21F9CB51B008BE4C1 /* WTTraiderCostsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTraiderCostsView.h; sourceTree = "<group>"; };
 		1E4EA6D31F9CB51B008BE4C1 /* WTTraiderCostsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTraiderCostsView.m; sourceTree = "<group>"; };
+		1E4EA6D61F9CC45B008BE4C1 /* UIColor+WTColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WTColors.h"; sourceTree = "<group>"; };
+		1E4EA6D71F9CC45B008BE4C1 /* UIColor+WTColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WTColors.m"; sourceTree = "<group>"; };
+		1E4EA6D91F9CDBBC008BE4C1 /* WTBitUsdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBitUsdViewController.h; sourceTree = "<group>"; };
+		1E4EA6DA1F9CDBBC008BE4C1 /* WTBitUsdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBitUsdViewController.m; sourceTree = "<group>"; };
+		1E4EA6DD1F9D0238008BE4C1 /* WTTraidersCandlesViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTraidersCandlesViewModel.h; sourceTree = "<group>"; };
+		1E4EA6DE1F9D0238008BE4C1 /* WTTraidersCandlesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTraidersCandlesViewModel.m; sourceTree = "<group>"; };
+		1E4EA7491FA074B3008BE4C1 /* PSWebSocketDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSWebSocketDriver.m; path = PSSocket/PSWebSocketDriver.m; sourceTree = "<group>"; };
+		1E4EA74A1FA074B3008BE4C1 /* PSWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSWebSocket.m; path = PSSocket/PSWebSocket.m; sourceTree = "<group>"; };
+		1E4EA74B1FA074B3008BE4C1 /* PocketSocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PocketSocket-Prefix.pch"; path = "PSSocket/PocketSocket-Prefix.pch"; sourceTree = "<group>"; };
+		1E4EA74C1FA074B3008BE4C1 /* PSWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSWebSocket.h; path = PSSocket/PSWebSocket.h; sourceTree = "<group>"; };
+		1E4EA74D1FA074B3008BE4C1 /* PSWebSocketBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSWebSocketBuffer.h; path = PSSocket/PSWebSocketBuffer.h; sourceTree = "<group>"; };
+		1E4EA74E1FA074B3008BE4C1 /* PSWebSocketBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSWebSocketBuffer.m; path = PSSocket/PSWebSocketBuffer.m; sourceTree = "<group>"; };
+		1E4EA74F1FA074B3008BE4C1 /* PSWebSocketDeflater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSWebSocketDeflater.h; path = PSSocket/PSWebSocketDeflater.h; sourceTree = "<group>"; };
+		1E4EA7501FA074B3008BE4C1 /* PSWebSocketDeflater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSWebSocketDeflater.m; path = PSSocket/PSWebSocketDeflater.m; sourceTree = "<group>"; };
+		1E4EA7511FA074B3008BE4C1 /* PSWebSocketDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSWebSocketDriver.h; path = PSSocket/PSWebSocketDriver.h; sourceTree = "<group>"; };
+		1E4EA7521FA074B3008BE4C1 /* PSWebSocketInflater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSWebSocketInflater.h; path = PSSocket/PSWebSocketInflater.h; sourceTree = "<group>"; };
+		1E4EA7531FA074B3008BE4C1 /* PSWebSocketInflater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSWebSocketInflater.m; path = PSSocket/PSWebSocketInflater.m; sourceTree = "<group>"; };
+		1E4EA7541FA074B3008BE4C1 /* PSWebSocketInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSWebSocketInternal.h; path = PSSocket/PSWebSocketInternal.h; sourceTree = "<group>"; };
+		1E4EA7551FA074B3008BE4C1 /* PSWebSocketNetworkThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSWebSocketNetworkThread.h; path = PSSocket/PSWebSocketNetworkThread.h; sourceTree = "<group>"; };
+		1E4EA7561FA074B3008BE4C1 /* PSWebSocketNetworkThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSWebSocketNetworkThread.m; path = PSSocket/PSWebSocketNetworkThread.m; sourceTree = "<group>"; };
+		1E4EA7571FA074B3008BE4C1 /* PSWebSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSWebSocketServer.h; path = PSSocket/PSWebSocketServer.h; sourceTree = "<group>"; };
+		1E4EA7581FA074B3008BE4C1 /* PSWebSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSWebSocketServer.m; path = PSSocket/PSWebSocketServer.m; sourceTree = "<group>"; };
+		1E4EA7591FA074B3008BE4C1 /* PSWebSocketTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSWebSocketTypes.h; path = PSSocket/PSWebSocketTypes.h; sourceTree = "<group>"; };
+		1E4EA75A1FA074B3008BE4C1 /* PSWebSocketUTF8Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSWebSocketUTF8Decoder.h; path = PSSocket/PSWebSocketUTF8Decoder.h; sourceTree = "<group>"; };
+		1E4EA75B1FA074B3008BE4C1 /* PSWebSocketUTF8Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSWebSocketUTF8Decoder.m; path = PSSocket/PSWebSocketUTF8Decoder.m; sourceTree = "<group>"; };
+		1E4EA7651FA0750F008BE4C1 /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = usr/lib/libSystem.tbd; sourceTree = SDKROOT; };
+		1E4EA7671FA07514008BE4C1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1E4EA7691FA07519008BE4C1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1E4EA76B1FA07522008BE4C1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		1E4EA76D1FA08088008BE4C1 /* WTCandleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCandleModel.h; sourceTree = "<group>"; };
+		1E4EA76E1FA08088008BE4C1 /* WTCandleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCandleModel.m; sourceTree = "<group>"; };
+		1E4EA7711FA46F11008BE4C1 /* WTDottedLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDottedLineView.h; sourceTree = "<group>"; };
+		1E4EA7721FA46F11008BE4C1 /* WTDottedLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTDottedLineView.m; sourceTree = "<group>"; };
+		1E4EA7751FA477E2008BE4C1 /* WTDottedBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDottedBackgroundView.h; sourceTree = "<group>"; };
+		1E4EA7761FA477E2008BE4C1 /* WTDottedBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTDottedBackgroundView.m; sourceTree = "<group>"; };
+		1E4EA7791FA52D69008BE4C1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		1E4EA77A1FA52D69008BE4C1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		1E4EA77C1FA52DD4008BE4C1 /* WTReachabilityProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTReachabilityProtocol.h; sourceTree = "<group>"; };
+		1E4EA77F1FA52E0E008BE4C1 /* WTReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTReachability.h; sourceTree = "<group>"; };
+		1E4EA7801FA52E0E008BE4C1 /* WTReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTReachability.m; sourceTree = "<group>"; };
+		1E4EA7831FA53140008BE4C1 /* WTNoInternetConnectionBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNoInternetConnectionBanner.h; sourceTree = "<group>"; };
+		1E4EA7841FA53140008BE4C1 /* WTNoInternetConnectionBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNoInternetConnectionBanner.m; sourceTree = "<group>"; };
+		1E4EA7861FA5344A008BE4C1 /* WTBitUsdInjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBitUsdInjection.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +151,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E4EA76C1FA07522008BE4C1 /* libz.tbd in Frameworks */,
+				1E4EA76A1FA07519008BE4C1 /* Security.framework in Frameworks */,
+				1E4EA7681FA07514008BE4C1 /* CFNetwork.framework in Frameworks */,
+				1E4EA7661FA0750F008BE4C1 /* libSystem.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +182,7 @@
 				1E4EA6941F9A8EF8008BE4C1 /* WorkTestTests */,
 				1E4EA69F1F9A8EF8008BE4C1 /* WorkTestUITests */,
 				1E4EA6791F9A8EF8008BE4C1 /* Products */,
+				1E4EA7641FA0750F008BE4C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +199,9 @@
 		1E4EA67A1F9A8EF8008BE4C1 /* WorkTest */ = {
 			isa = PBXGroup;
 			children = (
+				1E4EA7821FA53129008BE4C1 /* WTNoInternetConnectionBanner */,
+				1E4EA7781FA52D45008BE4C1 /* WTReacibility */,
+				1E4EA6D51F9CC430008BE4C1 /* WTColors */,
 				1E4EA6B91F9CA54C008BE4C1 /* WTraiderView */,
 				1E4EA6AE1F9B4919008BE4C1 /* WTInjectionContainer */,
 				1E4EA67E1F9A8EF8008BE4C1 /* AppDelegate.h */,
@@ -141,6 +213,8 @@
 				1E4EA6891F9A8EF8008BE4C1 /* LaunchScreen.storyboard */,
 				1E4EA68C1F9A8EF8008BE4C1 /* Info.plist */,
 				1E4EA67B1F9A8EF8008BE4C1 /* Supporting Files */,
+				1E4EA6D91F9CDBBC008BE4C1 /* WTBitUsdViewController.h */,
+				1E4EA6DA1F9CDBBC008BE4C1 /* WTBitUsdViewController.m */,
 			);
 			path = WorkTest;
 			sourceTree = "<group>";
@@ -174,10 +248,12 @@
 		1E4EA6AE1F9B4919008BE4C1 /* WTInjectionContainer */ = {
 			isa = PBXGroup;
 			children = (
+				1E4EA7481FA0749E008BE4C1 /* PCSocket */,
 				1E4EA6C31F9CA8D0008BE4C1 /* WTTradeDataSource */,
 				1E4EA6B21F9B4952008BE4C1 /* WTNetworkService */,
 				1E4EA6AF1F9B494D008BE4C1 /* WTInjectionContainer.h */,
 				1E4EA6B01F9B494D008BE4C1 /* WTInjectionContainer.m */,
+				1E4EA7861FA5344A008BE4C1 /* WTBitUsdInjection.h */,
 			);
 			name = WTInjectionContainer;
 			sourceTree = "<group>";
@@ -197,6 +273,7 @@
 		1E4EA6B91F9CA54C008BE4C1 /* WTraiderView */ = {
 			isa = PBXGroup;
 			children = (
+				1E4EA7741FA477C1008BE4C1 /* WTDottedBackgroundView */,
 				1E4EA6CE1F9CB4F3008BE4C1 /* WTTraiderCostsView */,
 				1E4EA6CA1F9CB442008BE4C1 /* WTTraiderCandlesView */,
 				1E4EA6BA1F9CA56A008BE4C1 /* WTTraideViewModel.h */,
@@ -210,6 +287,8 @@
 		1E4EA6C31F9CA8D0008BE4C1 /* WTTradeDataSource */ = {
 			isa = PBXGroup;
 			children = (
+				1E4EA76D1FA08088008BE4C1 /* WTCandleModel.h */,
+				1E4EA76E1FA08088008BE4C1 /* WTCandleModel.m */,
 				1E4EA6C41F9CA926008BE4C1 /* WTTradeDataSourceProtocol.h */,
 				1E4EA6C71F9CA986008BE4C1 /* WTTradeDataSource.h */,
 				1E4EA6C81F9CA986008BE4C1 /* WTTradeDataSource.m */,
@@ -222,6 +301,8 @@
 			children = (
 				1E4EA6CB1F9CB45E008BE4C1 /* WTTraidersCandlesView.h */,
 				1E4EA6CC1F9CB45E008BE4C1 /* WTTraidersCandlesView.m */,
+				1E4EA6DD1F9D0238008BE4C1 /* WTTraidersCandlesViewModel.h */,
+				1E4EA6DE1F9D0238008BE4C1 /* WTTraidersCandlesViewModel.m */,
 			);
 			name = WTTraiderCandlesView;
 			sourceTree = "<group>";
@@ -235,6 +316,92 @@
 				1E4EA6D31F9CB51B008BE4C1 /* WTTraiderCostsView.m */,
 			);
 			name = WTTraiderCostsView;
+			sourceTree = "<group>";
+		};
+		1E4EA6D51F9CC430008BE4C1 /* WTColors */ = {
+			isa = PBXGroup;
+			children = (
+				1E4EA6D61F9CC45B008BE4C1 /* UIColor+WTColors.h */,
+				1E4EA6D71F9CC45B008BE4C1 /* UIColor+WTColors.m */,
+			);
+			name = WTColors;
+			sourceTree = "<group>";
+		};
+		1E4EA7481FA0749E008BE4C1 /* PCSocket */ = {
+			isa = PBXGroup;
+			children = (
+				1E4EA7491FA074B3008BE4C1 /* PSWebSocketDriver.m */,
+				1E4EA74A1FA074B3008BE4C1 /* PSWebSocket.m */,
+				1E4EA74B1FA074B3008BE4C1 /* PocketSocket-Prefix.pch */,
+				1E4EA74C1FA074B3008BE4C1 /* PSWebSocket.h */,
+				1E4EA74D1FA074B3008BE4C1 /* PSWebSocketBuffer.h */,
+				1E4EA74E1FA074B3008BE4C1 /* PSWebSocketBuffer.m */,
+				1E4EA74F1FA074B3008BE4C1 /* PSWebSocketDeflater.h */,
+				1E4EA7501FA074B3008BE4C1 /* PSWebSocketDeflater.m */,
+				1E4EA7511FA074B3008BE4C1 /* PSWebSocketDriver.h */,
+				1E4EA7521FA074B3008BE4C1 /* PSWebSocketInflater.h */,
+				1E4EA7531FA074B3008BE4C1 /* PSWebSocketInflater.m */,
+				1E4EA7541FA074B3008BE4C1 /* PSWebSocketInternal.h */,
+				1E4EA7551FA074B3008BE4C1 /* PSWebSocketNetworkThread.h */,
+				1E4EA7561FA074B3008BE4C1 /* PSWebSocketNetworkThread.m */,
+				1E4EA7571FA074B3008BE4C1 /* PSWebSocketServer.h */,
+				1E4EA7581FA074B3008BE4C1 /* PSWebSocketServer.m */,
+				1E4EA7591FA074B3008BE4C1 /* PSWebSocketTypes.h */,
+				1E4EA75A1FA074B3008BE4C1 /* PSWebSocketUTF8Decoder.h */,
+				1E4EA75B1FA074B3008BE4C1 /* PSWebSocketUTF8Decoder.m */,
+			);
+			name = PCSocket;
+			sourceTree = "<group>";
+		};
+		1E4EA7641FA0750F008BE4C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E4EA76B1FA07522008BE4C1 /* libz.tbd */,
+				1E4EA7691FA07519008BE4C1 /* Security.framework */,
+				1E4EA7671FA07514008BE4C1 /* CFNetwork.framework */,
+				1E4EA7651FA0750F008BE4C1 /* libSystem.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E4EA7701FA46EF6008BE4C1 /* WTDottedLineView */ = {
+			isa = PBXGroup;
+			children = (
+				1E4EA7711FA46F11008BE4C1 /* WTDottedLineView.h */,
+				1E4EA7721FA46F11008BE4C1 /* WTDottedLineView.m */,
+			);
+			name = WTDottedLineView;
+			sourceTree = "<group>";
+		};
+		1E4EA7741FA477C1008BE4C1 /* WTDottedBackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				1E4EA7701FA46EF6008BE4C1 /* WTDottedLineView */,
+				1E4EA7751FA477E2008BE4C1 /* WTDottedBackgroundView.h */,
+				1E4EA7761FA477E2008BE4C1 /* WTDottedBackgroundView.m */,
+			);
+			name = WTDottedBackgroundView;
+			sourceTree = "<group>";
+		};
+		1E4EA7781FA52D45008BE4C1 /* WTReacibility */ = {
+			isa = PBXGroup;
+			children = (
+				1E4EA7791FA52D69008BE4C1 /* Reachability.h */,
+				1E4EA77A1FA52D69008BE4C1 /* Reachability.m */,
+				1E4EA77C1FA52DD4008BE4C1 /* WTReachabilityProtocol.h */,
+				1E4EA77F1FA52E0E008BE4C1 /* WTReachability.h */,
+				1E4EA7801FA52E0E008BE4C1 /* WTReachability.m */,
+			);
+			name = WTReacibility;
+			sourceTree = "<group>";
+		};
+		1E4EA7821FA53129008BE4C1 /* WTNoInternetConnectionBanner */ = {
+			isa = PBXGroup;
+			children = (
+				1E4EA7831FA53140008BE4C1 /* WTNoInternetConnectionBanner.h */,
+				1E4EA7841FA53140008BE4C1 /* WTNoInternetConnectionBanner.m */,
+			);
+			name = WTNoInternetConnectionBanner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,18 +537,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E4EA75E1FA074B3008BE4C1 /* PSWebSocketBuffer.m in Sources */,
 				1E4EA6D41F9CB51B008BE4C1 /* WTTraiderCostsView.m in Sources */,
 				1E4EA6831F9A8EF8008BE4C1 /* ViewController.m in Sources */,
+				1E4EA7811FA52E0E008BE4C1 /* WTReachability.m in Sources */,
+				1E4EA7621FA074B3008BE4C1 /* PSWebSocketServer.m in Sources */,
+				1E4EA6DB1F9CDBBC008BE4C1 /* WTBitUsdViewController.m in Sources */,
+				1E4EA7771FA477E2008BE4C1 /* WTDottedBackgroundView.m in Sources */,
+				1E4EA76F1FA08088008BE4C1 /* WTCandleModel.m in Sources */,
 				1E4EA6B81F9B498F008BE4C1 /* WTNetworkService.m in Sources */,
+				1E4EA75C1FA074B3008BE4C1 /* PSWebSocketDriver.m in Sources */,
+				1E4EA7731FA46F11008BE4C1 /* WTDottedLineView.m in Sources */,
 				1E4EA6C21F9CA7FA008BE4C1 /* WTTradeItem.m in Sources */,
 				1E4EA6BF1F9CA57C008BE4C1 /* WTTraiderView.m in Sources */,
+				1E4EA7631FA074B3008BE4C1 /* PSWebSocketUTF8Decoder.m in Sources */,
+				1E4EA7851FA53140008BE4C1 /* WTNoInternetConnectionBanner.m in Sources */,
 				1E4EA6C91F9CA986008BE4C1 /* WTTradeDataSource.m in Sources */,
+				1E4EA6D81F9CC45B008BE4C1 /* UIColor+WTColors.m in Sources */,
+				1E4EA75F1FA074B3008BE4C1 /* PSWebSocketDeflater.m in Sources */,
+				1E4EA7601FA074B3008BE4C1 /* PSWebSocketInflater.m in Sources */,
+				1E4EA6DF1F9D0238008BE4C1 /* WTTraidersCandlesViewModel.m in Sources */,
 				1E4EA6BC1F9CA56A008BE4C1 /* WTTraideViewModel.m in Sources */,
+				1E4EA7611FA074B3008BE4C1 /* PSWebSocketNetworkThread.m in Sources */,
 				1E4EA6D11F9CB50F008BE4C1 /* WTTraiderCostsViewModel.m in Sources */,
 				1E4EA6801F9A8EF8008BE4C1 /* AppDelegate.m in Sources */,
 				1E4EA6B11F9B494E008BE4C1 /* WTInjectionContainer.m in Sources */,
 				1E4EA6CD1F9CB45E008BE4C1 /* WTTraidersCandlesView.m in Sources */,
 				1E4EA67D1F9A8EF8008BE4C1 /* main.m in Sources */,
+				1E4EA77B1FA52D6A008BE4C1 /* Reachability.m in Sources */,
+				1E4EA75D1FA074B3008BE4C1 /* PSWebSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +797,7 @@
 				1E4EA6A71F9A8EF8008BE4C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E4EA6A81F9A8EF8008BE4C1 /* Build configuration list for PBXNativeTarget "WorkTestTests" */ = {
 			isa = XCConfigurationList;
@@ -621,6 +806,7 @@
 				1E4EA6AA1F9A8EF8008BE4C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E4EA6AB1F9A8EF8008BE4C1 /* Build configuration list for PBXNativeTarget "WorkTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -629,6 +815,7 @@
 				1E4EA6AD1F9A8EF8008BE4C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

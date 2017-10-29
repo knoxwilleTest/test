@@ -7,15 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@class WTTradeItem;
-@class UIView;
+/*
+    class are caching max and min costs for current session
+    calculating the list of costs depending from current screen height
+ */
+
+@class WTCandleModel;
+
+typedef void (^WTTraiderCostsModelUpdaterHandler) ();
 
 @interface WTTraiderCostsViewModel : NSObject
 
--(void)newCandleDisplayed:(WTTradeItem *)tradeItem;
--(void)candleWasDissapered:(WTTradeItem *)tradeItem;
+-(void)newCandleDisplayed:(WTCandleModel *)candle;
+-(void)candleWasDissapered:(WTCandleModel *)tradeItem;
+-(void)updateWithVisibleCandles:(NSArray<WTCandleModel *> *)visibleCandles withCompletion:(WTTraiderCostsModelUpdaterHandler)completion;
 
--(void)viewDidLayout:(UIView *)view;
+-(void)updateUI;
+-(void)attachToView:(UIView *)view topOffset:(CGFloat)topOffset bottomOffset:(CGFloat)bottomOffset;
+
+-(UIView *)view;
+
+@property (nonatomic, assign) double maxCost;
+@property (nonatomic, assign) double minCost;
 
 @end

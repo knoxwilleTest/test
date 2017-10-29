@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkTest/WTNetworkService.m"
-            timestampString = "530363150.607744"
+            timestampString = "530608977.593179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "-readIn:"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "-isNeedToSendPing:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WorkTest/WTNetworkService.m"
-            timestampString = "530363150.607744"
+            filePath = "WorkTest/WTTraidersCandlesViewModel.m"
+            timestampString = "530653886.337426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-stream:handleEvent:"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-calculateViewSizeWithCostsModel:targetView:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WorkTest/WTNetworkService.m"
-            timestampString = "530363150.607744"
+            filePath = "WorkTest/WTTraidersCandlesViewModel.m"
+            timestampString = "530654161.565211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-stream:handleEvent:"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-calculateViewSizeWithCostsModel:targetView:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

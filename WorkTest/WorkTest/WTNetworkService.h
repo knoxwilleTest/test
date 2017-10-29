@@ -9,11 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "WTNetworkServiceProtocol.h"
 
-@protocol WTTradeDataSourceProtocol;
+/*
+    class for working server
+ */
 
+@protocol WTTradeDataSourceProtocol;
+@protocol WTReachabilityProtocol;
 @protocol WTNetworkServiceInjection<NSObject>
 
 - (id<WTTradeDataSourceProtocol>)tradeDataSource;
+- (id<WTReachabilityProtocol>)reachibility;
 
 @end
 
@@ -21,6 +26,6 @@
 
 - (instancetype)init __attribute__((unavailable("dont use init, use initWithInjection")));
 
-- (instancetype)initWithInjection:(id<WTNetworkServiceInjection>)injection;
+- (instancetype)initWithInjection:(id<WTNetworkServiceInjection>)injection url:(NSString *)url;
 
 @end

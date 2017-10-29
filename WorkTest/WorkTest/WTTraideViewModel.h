@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "WTTradeDataSourceProtocol.h"
 
+/*
+    class handle data from data source and calculationg candle models properties
+ */
+
 @class UIView;
 
 @protocol WTTradeDataSourceProtocol;
@@ -19,5 +23,7 @@
                        targetView:(UIView *)aTargetView;
 
 -(void)setupUI;
+
+-(void)viewWillLayout:(UIView *)view;
 
 @end

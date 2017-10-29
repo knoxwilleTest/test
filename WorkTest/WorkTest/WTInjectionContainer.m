@@ -9,6 +9,7 @@
 #import "WTInjectionContainer.h"
 #import "WTNetworkService.h"
 #import "WTTradeDataSource.h"
+#import "WTReachability.h"
 
 @implementation WTInjectionContainer
 
@@ -16,7 +17,7 @@
     static id<WTNetworkServiceProtocol> networkService = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        networkService = [[WTNetworkService alloc] initWithInjection:self];
+        networkService = [[WTNetworkService alloc] initWithInjection:self url:@"wss://quotes.exness.com:18400/"];
         
     });
     return networkService;
@@ -27,10 +28,21 @@
     static id<WTTradeDataSourceProtocol> traideDataSource = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        traideDataSource = [[WTTradeDataSource alloc] init];
+        traideDataSource = [[WTTradeDataSource alloc] initWithInjection:self];
         
     });
     return traideDataSource;
+}
+
+
+- (id<WTReachabilityProtocol>)reachibility {
+    static id<WTReachabilityProtocol> reachibility = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        reachibility = [[WTReachability alloc] init];
+        
+    });
+    return reachibility;
 }
 
 

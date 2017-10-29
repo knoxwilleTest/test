@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+/*
+    class for showing right panel with current max and min costs
+ */
+
 @interface WTTraiderCostsView : UIView
 
--(void)layoutWithLabelsCount:(NSInteger)labelCount;
+-(void)layoutCosts;
 
 @property (nonatomic, strong) NSMutableArray<UILabel *> *costLabels;
 

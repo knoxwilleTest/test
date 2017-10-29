@@ -8,18 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@class WTTradeItem;
+@class WTCandleModel;
 
 @protocol WTTradeDataSourceDelegate
 
--(void)newCandleIsCome:(WTTradeItem *)item;
+-(BOOL)newCandleIsCome:(WTCandleModel *)item; //new candle is come
+-(void)updateCurrentCandleWithCandle:(WTCandleModel *)canleModel; // data for last candle updater
 
 @end
 
 
 @protocol WTTradeDataSourceProtocol
 
--(void)newTradeItemIsCome:(WTTradeItem *)item;
--(void)setDataSourceDelegate:(id<WTTradeDataSourceDelegate>)delegate;
+@property (nonatomic, weak) id<WTTradeDataSourceDelegate> delegate;
 
 @end

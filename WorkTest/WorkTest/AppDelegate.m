@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "WTInjectionContainer.h"
 #import "WTNetworkService.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [injectorContainer().networkService connect];
-    // Override point for customization after application launch.
+//    [injectorContainer().networkService connect];
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:[ViewController new]];
+    self.window.rootViewController = navController;
     return YES;
 }
 

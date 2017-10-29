@@ -9,26 +9,23 @@
 #import "WTNetworkService.h"
 #import "WTTradeItem.h"
 #import "WTTradeDataSource.h"
+#import <Endian.h>
+#import "PSWebSocket.h"
+#import "Reachability.h"
+#import "WTReachability.h"
 
-static  NSString *kServerAdress = @"quotes.exness.com";
-static  UInt32 kPort = 18400;
-
-@interface WTNetworkService()<NSStreamDelegate> {
-    CFReadStreamRef _readStream;
-    CFWriteStreamRef _writeStream;
-    
-    NSInputStream *_inputStream;
-    NSOutputStream *_outputStream;
-    
+@interface WTNetworkService()<PSWebSocketDelegate> {
     id<WTNetworkServiceInjection> _injection;
+    __weak id<WTNetworkServiceDelegate> _delegate;
 }
+
+@property (nonatomic, strong) PSWebSocket *socket;
 
 @end
 
 @implementation WTNetworkService
 
-
--(instancetype)initWithInjection:(id<WTNetworkServiceInjection>)injection {
+- (instancetype)initWithInjection:(id<WTNetworkServiceInjection>)injection url:(NSString *)url {
     if (self = [super init]) {
         _injection = injection;
     }
@@ -36,86 +33,83 @@ static  UInt32 kPort = 18400;
 }
 
 
--(void)connect {
-    CFReadStreamRef readStream;
-    CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)CFBridgingRetain(kServerAdress),
-                                       kPort, &readStream, &writeStream);
-    _inputStream = (__bridge NSInputStream *)readStream;
-    _outputStream = (__bridge NSOutputStream *)writeStream;
-    [_inputStream setDelegate:self]; [_outputStream setDelegate:self];
-    [_inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [_outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [_inputStream open]; [_outputStream open];
-    [self sendMessage];
-}
-
-
-- (void)sendMessage {
-    NSMutableURLRequest *request = [NSMutableURLRequest new];
-    request.HTTPMethod = @"POST";
-    NSString *res = @"SUBSCRIBE: BTCUSD";
-    NSData *dt = [[NSData alloc] initWithData:[res dataUsingEncoding:NSASCIIStringEncoding]];
-    request.HTTPBody = dt;
-    
-    uint32_t length = (uint32_t)htonl([dt length]);
-    // Don't forget to check the return value of 'write'
-    [_outputStream write:(uint8_t *)&length maxLength:4];
-    [_outputStream write:[dt bytes] maxLength:length];
-}
-
-#pragma mark NSStreamDelegate
-
-- (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)event {
-    switch(event) {
-        case NSStreamEventHasSpaceAvailable: {
-            if(stream == _outputStream) {
-                NSLog(@"outputStream is ready.");
-            }
-            break;
-        }
-        case NSStreamEventHasBytesAvailable: {
-            if(stream == _inputStream) {
-                NSLog(@"inputStream is ready.");
-                uint8_t buf[1024];
-                long len = 0;
-                len = [_inputStream read:buf maxLength:1024];
-                BOOL bytesAvailable = [_inputStream hasBytesAvailable];
-                if(len > 0) {
-                    NSMutableData* data=[[NSMutableData alloc] initWithLength:0];
-                    [data appendBytes: (const void *)buf length:len];
-                    NSString *s = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-                    [self readIn:s];
-                }
-                WTTradeItem *tradeItem = [WTTradeItem new];
-                tradeItem.tradeAsk = @"4958.714";
-                tradeItem.tradeBid = @"4957.351";
-                [_injection.tradeDataSource newTradeItemIsCome:tradeItem];
-            
-            } 
-            break;
-        }
-        case NSStreamEventErrorOccurred: {
-            NSError* error = [stream streamError];
-            NSString* errorMessage = [NSString stringWithFormat:@"%@ (Code = %ld",
-                                      [error localizedDescription],
-                                      [error code]];
-        }
-            break;
-        default: {
-            NSLog(@"Stream is sending an Event: %i", event);
-            
-            break;
-        }
+-(void)setDelegate:(id<WTNetworkServiceDelegate>)delegate {
+    if (delegate == _delegate) {
+        return;
     }
-    
-    NSLog(@"Stream triggered.");
+    _delegate = delegate;
+    if (delegate) {
+        [self connect];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkChange:) name:kReachabilityChangedNotification object:nil];
+    }
+    else {
+        [self reset];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
 }
 
 
-- (void)readIn:(NSString *)s {
-    NSLog(@"Reading in the following:");
-    NSLog(@"%@", s);
+
+-(void)handleNetworkChange:(NSNotification *)notice {
+    if ([_injection.reachibility isInternetConnected]) {
+        [self reset];
+    }
+    else {
+        [self connect];
+    }
+}
+
+
+-(void)reset {
+    [self.socket close];
+    self.socket = nil;
+}
+
+
+-(void)connect {
+    if (_delegate) {
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"wss://quotes.exness.com:18400/"]];
+        
+        // create the socket and assign delegate
+        self.socket = [PSWebSocket clientSocketWithRequest:request];
+        self.socket.delegate = self;
+        
+        // open socket
+        [self.socket open];
+    }
+}
+
+-(id<WTNetworkServiceDelegate>)delegate {
+    return _delegate;
+}
+
+
+-(void)subscribe {
+    [self.socket send:@"SUBSCRIBE: BTCUSD"];
+}
+
+
+- (void)webSocketDidOpen:(PSWebSocket *)webSocket {
+    NSLog(@"The websocket handshake completed and is now open!");
+    [_delegate WTSocketOpen];
+}
+
+
+- (void)webSocket:(PSWebSocket *)webSocket didReceiveMessage:(id)message {
+    [_delegate WTSocketDidReceiveMessage:[message dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
+
+- (void)webSocket:(PSWebSocket *)webSocket didFailWithError:(NSError *)error {
+    [_delegate WTSocketDidFail];
+    NSLog(@"The websocket handshake/connection failed with an error: %@", error);
+}
+
+
+- (void)webSocket:(PSWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
+    [_delegate WTSocketDidClosed];
+    NSLog(@"The websocket closed with code: %@, reason: %@, wasClean: %@", @(code), reason, (wasClean) ? @"YES" : @"NO");
+    
 }
 
 @end
