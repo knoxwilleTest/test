@@ -11,7 +11,7 @@
 #import "WTCandleModel.h"
 #import "WTNetworkService.h"
 
-static const NSInteger kCandleLenght = 10; // candle lenght in seconds
+static const NSInteger kCandleLenght = 60; // candle lenght in seconds
 
 typedef NS_ENUM(NSInteger, WTTradeDataSourceState) {
     WTTradeDataSourceStateConnect = 0,

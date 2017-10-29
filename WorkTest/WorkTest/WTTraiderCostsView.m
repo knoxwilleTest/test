@@ -35,23 +35,23 @@ static const CGFloat kLabelDistance = 30.0f;
 
 
 -(void)layoutCosts {
-    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj removeFromSuperview];
-    }];
-    
-    [_costLabels removeAllObjects];
-    
     NSInteger countLabels = ceil(CGRectGetHeight(self.frame) / kLabelDistance) - 1;
     
-    for (int index = 0; index < countLabels; index++) {
-        UILabel *label = [UILabel new];
-        label.textColor = [self costLabelTextColor];
-        label.font = [self costLabelFont];
-        label.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:label];
-        [_costLabels addObject:label];
+    if (countLabels != _costLabels.count) { // perfomance issue
+        [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [obj removeFromSuperview];
+        }];
+        [_costLabels removeAllObjects];
+        for (int index = 0; index < countLabels; index++) {
+            UILabel *label = [UILabel new];
+            label.textColor = [self costLabelTextColor];
+            label.font = [self costLabelFont];
+            label.translatesAutoresizingMaskIntoConstraints = NO;
+            [self addSubview:label];
+            [_costLabels addObject:label];
+        }
+        [self layoutForCurrentOrientation];
     }
-    [self layoutForCurrentOrientation];
 }
 
 
