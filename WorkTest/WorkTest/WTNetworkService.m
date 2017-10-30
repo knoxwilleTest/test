@@ -28,6 +28,7 @@
 - (instancetype)initWithInjection:(id<WTNetworkServiceInjection>)injection url:(NSString *)url {
     if (self = [super init]) {
         _injection = injection;
+        [[_injection reachibility] startNotifier];
     }
     return self;
 }
@@ -52,10 +53,10 @@
 
 -(void)handleNetworkChange:(NSNotification *)notice {
     if ([_injection.reachibility isInternetConnected]) {
-        [self reset];
+        [self connect];
     }
     else {
-        [self connect];
+        [self reset];
     }
 }
 

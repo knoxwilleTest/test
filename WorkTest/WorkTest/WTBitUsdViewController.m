@@ -45,16 +45,24 @@ static const CGFloat animationNoConnectionBannerDuration = 0.4;
     self.navigationItem.title = NSLocalizedString(@"BTC/USD", @"BTC/USD");
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
+    //start reachibily
+    
+    //only for no connection banner
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkChange) name:kReachabilityChangedNotification object:nil];
+    
     //creating model for trading view with candles
     _tradingViewModel = [[WTTraideViewModel alloc] initWithDataSource:_injection.tradeDataSource targetView:self.view];
     [_tradingViewModel setupUI];
-    
-    //only for no connection banner
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkChange:) name:kReachabilityChangedNotification object:nil];
 }
 
 
--(void)handleNetworkChange:(NSNotification *)notice {
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self handleNetworkChange];
+}
+
+
+-(void)handleNetworkChange {
     if (![_injection.reachibility isInternetConnected]) {
         [self showNoConnectionBanner];
     }
@@ -80,7 +88,6 @@ static const CGFloat animationNoConnectionBannerDuration = 0.4;
     [UIView animateWithDuration:animationNoConnectionBannerDuration animations:^{
         [self.view layoutIfNeeded];
     }];
-
 }
 
 
@@ -104,6 +111,7 @@ static const CGFloat animationNoConnectionBannerDuration = 0.4;
 
 
 -(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     //stop getting data
     _injection.tradeDataSource.delegate = nil;
 }

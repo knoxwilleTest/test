@@ -12,4 +12,6 @@
 
 - (BOOL)isInternetConnected;
 
+- (void)startNotifier;
+
 @end

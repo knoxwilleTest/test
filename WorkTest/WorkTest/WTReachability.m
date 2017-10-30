@@ -9,12 +9,32 @@
 #import "WTReachability.h"
 #import "Reachability.h"
 
+@interface WTReachability () {
+    Reachability *_reachability;
+}
+
+@end
+
 @implementation WTReachability
 
+-(instancetype)init {
+    if (self = [super init]) {
+        _reachability = [Reachability reachabilityForInternetConnection];
+        [_reachability startNotifier];
+    }
+    return self;
+}
+
+
 - (BOOL)isInternetConnected {
-    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    NetworkStatus networkStatus = [_reachability currentReachabilityStatus];
     return networkStatus != NotReachable;
 }
+
+
+- (void)startNotifier {
+    [_reachability startNotifier];
+}
+
 
 @end
