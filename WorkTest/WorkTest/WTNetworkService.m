@@ -13,6 +13,7 @@
 #import "PSWebSocket.h"
 #import "Reachability.h"
 #import "WTReachability.h"
+#import <UIKit/UIKit.h>
 
 @interface WTNetworkService()<PSWebSocketDelegate> {
     id<WTNetworkServiceInjection> _injection;
@@ -42,6 +43,14 @@
     if (delegate) {
         [self connect];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkChange:) name:kReachabilityChangedNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(appInForeground)
+                                                     name:UIApplicationWillEnterForegroundNotification
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(appInBackground)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
     }
     else {
         [self reset];
@@ -49,6 +58,15 @@
     }
 }
 
+
+-(void)appInForeground {
+    [self connect];
+}
+
+
+-(void)appInBackground {
+    [self reset];
+}
 
 
 -(void)handleNetworkChange:(NSNotification *)notice {
